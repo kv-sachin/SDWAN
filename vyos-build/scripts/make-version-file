@@ -30,6 +30,8 @@ import git
 import defaults
 import util
 
+from git.repo.base import Repo
+
 # Load the build config
 util.check_build_config()
 with open(defaults.BUILD_CONFIG, 'r') as f:
@@ -46,13 +48,15 @@ build_date = now.strftime("%a %d %b %Y %H:%M UTC")
 build_uuid = str(uuid.uuid4())
 
 # Initialize Git object from our repository
-repo = git.Repo('.')
+#repo = git.Repo('.')
+##repo = git.Repo('.')
 
 # Retrieve the Git commit ID of the repository, 14 charaters will be sufficient
-build_git = repo.head.object.hexsha[:14]
+#build_git = repo.head.object.hexsha[:14]
+build_git = "123456"
 # If somone played around with the source tree and the build is "dirty", mark it
-if repo.is_dirty():
-    build_git += "-dirty"
+##if repo.is_dirty():
+##    build_git += "-dirty"
 
 # Create a build version
 if build_config['build_type'] == 'development':
@@ -61,7 +65,8 @@ if build_config['build_type'] == 'development':
         with open('data/versions') as f:
             version_mapping = json.load(f)
 
-        git_branch = repo.active_branch.name
+       # git_branch = repo.active_branch.name
+        git_branch = Repo.clone_from("https://github.com/sachinkumarvishwakarma/SDWAN.git", "/home/shushriti/vyos_workspace/SDWAN")
         branch_version = version_mapping[git_branch]
 
         version = "{0}-rolling-{1}".format(branch_version, build_timestamp)
