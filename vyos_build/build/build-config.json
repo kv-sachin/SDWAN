@@ -1,0 +1,24 @@
+{
+    "architecture": "amd64",
+    "build_by": "root@28e07d56da0f",
+    "build_dir": "/vyos/build",
+    "build_type": "development",
+    "custom_apt_entry": [
+        "deb http://repo.saltstack.com/apt/debian/8/amd64/2017.7 jessie main",
+        "deb http://repo.powerdns.com/debian jessie-rec-41 main",
+        "deb http://archive.debian.org/debian/ jessie-backports main"
+    ],
+    "custom_apt_key": null,
+    "custom_package": [],
+    "debian_mirror": "http://deb.debian.org/debian",
+    "debian_security_mirror": "http://deb.debian.org/debian-security",
+    "debug": false,
+    "distribution": "jessie",
+    "kernel_flavor": "amd64-vyos",
+    "kernel_version": "4.19.70",
+    "pbuilder_config": "build/pbuilderrc",
+    "pbuilder_debian_mirror": "http://deb.debian.org/debian",
+    "version": null,
+    "vyos_branch": "current",
+    "vyos_mirror": "http://dev.packages.vyos.net/repositories/current"
+}
